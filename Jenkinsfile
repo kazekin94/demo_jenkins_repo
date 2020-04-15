@@ -1,34 +1,32 @@
-def common;
 pipeline {
     agent { label 'django-slave' }
-    options {
-        disableConcurrentBuilds()
-    }
+    options { disableConcurrentBuilds() }
     stages {
-        stage('Build') { 
+        stage('Build') {
             steps {
-			sh 'chmod 777 ${WORKSPACE}/demo-jenkins-new/deployment_script/build_script.sh'
-			sh "bash -c \". ${WORKSPACE}/demo-jenkins-new/deployment_script/build_script.sh \""
+                sh 'chmod 777 ${WORKSPACE}/build_scripts/build_script.sh'
+				sh "bash -c \". ${WORKSPACE}/build_scripts/build_script.sh \""
             }
         }
-        stage('Copy Artifacts') { 
+        stage('Copy Artifacts') {
             steps {
-			sh 'chmod 777 ${WORKSPACE}/demo-jenkins-new/deployment_script/copy_artifacts.sh'
-			sh "bash -c \". ${WORKSPACE}/demo-jenkins-new/deployment_script/copy_artifacts.sh \""
+                sh 'chmod 777 ${WORKSPACE}/build_scripts/copy_artifacts.sh'
+			    sh "bash -c \". ${WORKSPACE}/build_scripts/copy_artifacts.sh \""
             }
         }
-		stage('Deploy') { 
-			steps {
-			    sh 'chmod 777 ${WORKSPACE}/demo-jenkins-new/deployment_script/deploy_script.sh'
-			    sh "bash -c \". ${WORKSPACE}/demo-jenkins-new/deployment_script/deploy_script.sh \""
-			}
-		}
+        stage('Deploy') {
+            steps {
+                sh 'chmod 777 ${WORKSPACE}/build_scripts/deployment_scripts.sh'
+			    sh "bash -c \". ${WORKSPACE}/build_scripts/deployment_scripts.sh \""
+            }
+        }
     }
-	post {
+    post {
         always {
-		    sh 'chmod 777 ${WORKSPACE}/demo-jenkins-new/deployment_script/send_mail.sh'
-		    sh "bash -c \". ${WORKSPACE}/demo-jenkins-new/deployment_script/send_mail.sh ${currentBuild.currentResult} \""
+            sh 'chmod 777 ${WORKSPACE}/build_scripts/send_mail.sh'
+		    sh "bash -c \". ${WORKSPACE}/build_scripts/send_mail.sh ${currentBuild.currentResult} \""
 		    cleanWs notFailBuild: true
+            
         }
     }
 }
