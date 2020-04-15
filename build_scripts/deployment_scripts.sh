@@ -127,7 +127,7 @@ elif [ $deploymentMode == "ecs-stale" ]
 then
     #create service
     echo "Creating service"
-    createServiceResp=$(aws ecs create-service --cluster $clusterName --service-name $serviceName --task-definition $taskDefinition --desired-count 2 --launch-type EC2)
+    createServiceResp=$(aws ecs create-service --cluster $clusterName --service-name $serviceName --task-definition $taskDefinition --desired-count 2 --launch-type EC2 --region $awsRegion)
 
 else
     echo "Wrong deployment mode selcted"
