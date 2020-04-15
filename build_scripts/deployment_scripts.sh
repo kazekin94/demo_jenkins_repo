@@ -123,7 +123,7 @@ then
         done
     fi
 #ecs deployment
-elif [ $deploymentMode == "ecs-stale" ]
+elif [ $deploymentMode == "cloud-native" ]
 then
     #create service
     echo "Creating service"
