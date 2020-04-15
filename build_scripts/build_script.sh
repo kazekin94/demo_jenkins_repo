@@ -2,9 +2,11 @@
 source $WORKSPACE/build_scripts/config.txt
 cd $WORKSPACE
 
-sudo docker build -t kuzuri1194/ankit:django_helloworld .
+sudo docker build -t django_helloworld:latest .
 
-sudo docker login -u $dockerUser -p $dockerUserPasswd
+$(aws ecr get-login --no-include-email --region $awsRegion)
 
-sudo docker push kuzuri1194/ankit:django_helloworld
+sudo docker tag django_helloworld:latest $awsAccountId.dkr.ecr.$awsRegion.amazonaws.com/$imageName
+
+sudo docker push $awsAccountId.dkr.ecr.$awsRegion.amazonaws.com/$imageName
 

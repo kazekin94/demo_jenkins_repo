@@ -123,11 +123,9 @@ then
         done
     fi
 #ecs deployment
-elif [ $deploymentMode == "ecs-stale" ]
+elif [ $deploymentMode == "cloud-native" ]
 then
-    #rolling update
-    updateServiceResp=$(aws ecs update-service --cluster $clusterName --service $serviceName --force-new-deployment --region $awsRegion)
-    echo "Update service response $updateServiceResp"
+    
 
 else
     echo "Wrong deployment mode selcted"
