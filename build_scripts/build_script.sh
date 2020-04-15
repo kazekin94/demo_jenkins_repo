@@ -4,7 +4,7 @@ cd $WORKSPACE
 
 sudo docker build -t $imageName .
 
-sudo docker tag 614083026494.dkr.ecr.ap-south-1.amazonaws.com/demo-jenkins/$imageName
+sudo docker tag $imageName 614083026494.dkr.ecr.ap-south-1.amazonaws.com/demo-jenkins/$imageName
 
 $(aws ecr get-login --region $awsRegion )
 
