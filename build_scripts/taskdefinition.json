@@ -3,15 +3,7 @@
 	"executionRoleArn": null,
 	"containerDefinitions": [{
 		"dnsSearchDomains": null,
-		"logConfiguration": {
-			"logDriver": "awslogs",
-			"secretOptions": null,
-			"options": {
-				"awslogs-group": "/ecs/demo-jenkins-maunal",
-				"awslogs-region": "ap-south-1",
-				"awslogs-stream-prefix": "ecs"
-			}
-		},
+		"logConfiguration": null,
 		"entryPoint": null,
 		"portMappings": [{
 			"hostPort": 8000,
@@ -20,7 +12,7 @@
 		}],
 		"command": null,
 		"linuxParameters": null,
-		"cpu": 128,
+		"cpu": 0,
 		"environment": [],
 		"resourceRequirements": null,
 		"ulimits": null,
@@ -30,14 +22,14 @@
 		"secrets": null,
 		"dockerSecurityOptions": null,
 		"memory": null,
-		"memoryReservation": 40,
+		"memoryReservation": 200,
 		"volumesFrom": [],
 		"stopTimeout": null,
 		"image": "kuzuri1194/ankit:django_helloworld",
 		"startTimeout": null,
 		"firelensConfiguration": null,
 		"dependsOn": null,
-		"disableNetworking": false,
+		"disableNetworking": null,
 		"interactive": null,
 		"healthCheck": null,
 		"essential": true,
@@ -58,34 +50,21 @@
 	"compatibilities": [
 		"EC2"
 	],
-	"taskDefinitionArn": "arn:aws:ecs:ap-south-1:614083026494:task-definition/demo-jenkins-maunal:13",
-	"family": "demo-jenkins-maunal",
+	"taskDefinitionArn": "arn:aws:ecs:ap-south-1:614083026494:task-definition/demo-jenkins:1",
+	"family": "demo-jenkins",
 	"requiresAttributes": [{
-			"targetId": null,
-			"targetType": null,
-			"value": null,
-			"name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
-		},
-		{
-			"targetId": null,
-			"targetType": null,
-			"value": null,
-			"name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
-		},
-		{
-			"targetId": null,
-			"targetType": null,
-			"value": null,
-			"name": "com.amazonaws.ecs.capability.docker-remote-api.1.21"
-		}
-	],
+		"targetId": null,
+		"targetType": null,
+		"value": null,
+		"name": "com.amazonaws.ecs.capability.docker-remote-api.1.21"
+	}],
 	"pidMode": null,
 	"requiresCompatibilities": [
 		"EC2"
 	],
-	"networkMode": "bridge",
+	"networkMode": null,
 	"cpu": null,
-	"revision": 13,
+	"revision": 1,
 	"status": "ACTIVE",
 	"inferenceAccelerators": null,
 	"proxyConfiguration": null,

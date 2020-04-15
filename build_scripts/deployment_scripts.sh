@@ -125,9 +125,9 @@ then
 #ecs deployment
 elif [ $deploymentMode == "ecs-stale" ]
 then
-    #rolling update
-    updateServiceResp=$(aws ecs update-service --cluster $clusterName --service $serviceName --force-new-deployment --region $awsRegion)
-    echo "Update service response $updateServiceResp"
+    #create service
+    echo "Creating service"
+    createServiceResp=$(aws ecs create-service --cluster $clusterName --service-name $serviceName --task-definition $taskDefinition --desired-count 2 --launch-type EC2)
 
 else
     echo "Wrong deployment mode selcted"
