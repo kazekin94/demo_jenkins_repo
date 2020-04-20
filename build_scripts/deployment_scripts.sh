@@ -127,7 +127,7 @@ elif [ $deploymentMode == "cloud-native" ]
 then
     #create service
     echo "Updating task definition"
-    aws ecs register-task-definition --family demo-jenkins --cli-input-json-file file://taskdefinition.json
+    aws ecs register-task-definition --family demo-jenkins --cli-input-json-file file://build_scripts/taskdefinition.json
     #echo "Creating service"
     #createServiceResp=$(aws ecs create-service --cluster $clusterName --service-name $serviceName --task-definition $taskDefinition --desired-count 2 --launch-type EC2 --region $awsRegion)
 
