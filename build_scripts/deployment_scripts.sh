@@ -126,8 +126,10 @@ then
 elif [ $deploymentMode == "cloud-native" ]
 then
     #create service
-    echo "Creating service"
-    createServiceResp=$(aws ecs create-service --cluster $clusterName --service-name $serviceName --task-definition $taskDefinition --desired-count 2 --launch-type EC2 --region $awsRegion)
+    echo "Updating task definition"
+    aws ecs register-task-definition --cli-input-json-file file://taskdefinition.json
+    #echo "Creating service"
+    #createServiceResp=$(aws ecs create-service --cluster $clusterName --service-name $serviceName --task-definition $taskDefinition --desired-count 2 --launch-type EC2 --region $awsRegion)
 
 else
     echo "Wrong deployment mode selcted"
