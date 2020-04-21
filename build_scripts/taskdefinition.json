@@ -50,7 +50,7 @@
 	"compatibilities": [
 		"EC2"
 	],
-	"taskDefinitionArn": "arn:aws:ecs:ap-south-1:614083026494:task-definition/demo-jenkins:1",
+	"taskDefinitionArn": "arn:aws:ecs:ap-south-1:614083026494:task-definition/demo-jenkins",
 	"family": "demo-jenkins",
 	"requiresAttributes": [{
 		"targetId": null,
