@@ -1,26 +1,40 @@
 {
-	"containerDefinitions": [{
-		"portMappings": [{
-			"hostPort": 8000,
-			"protocol": "tcp",
-			"containerPort": 8000
-		}],
-		"cpu": 0,
-		"memoryReservation": 200,
-		"image": "kuzuri1194/ankit:django_helloworld",
-		"name": "helloworld"
-	}],
-	"compatibilities": [
-		"EC2"
-	],
-	"taskDefinitionArn": "arn:aws:ecs:ap-south-1:614083026494:task-definition/demo-jenkins:2",
-	"family": "demo-jenkins",
-	"requiresAttributes": [{
-		"name": "com.amazonaws.ecs.capability.docker-remote-api.1.21"
-	}],
-	"requiresCompatibilities": [
-		"EC2"
-	],
-	"revision": 2,
-	"status": "ACTIVE"
+    "taskDefinition": {
+        "taskDefinitionArn": "arn:aws:ecs:ap-south-1:614083026494:task-definition/demo-jenkins:1",
+        "containerDefinitions": [
+            {
+                "name": "helloworld",
+                "image": "kuzuri1194/ankit:django_helloworld",
+                "cpu": 0,
+                "memoryReservation": 200,
+                "portMappings": [
+                    {
+                        "containerPort": 8000,
+                        "hostPort": 8000,
+                        "protocol": "tcp"
+                    }
+                ],
+                "essential": true,
+                "environment": [],
+                "mountPoints": [],
+                "volumesFrom": []
+            }
+        ],
+        "family": "demo-jenkins",
+        "revision": 1,
+        "volumes": [],
+        "status": "ACTIVE",
+        "requiresAttributes": [
+            {
+                "name": "com.amazonaws.ecs.capability.docker-remote-api.1.21"
+            }
+        ],
+        "placementConstraints": [],
+        "compatibilities": [
+            "EC2"
+        ],
+        "requiresCompatibilities": [
+            "EC2"
+        ]
+    }
 }
