@@ -127,7 +127,7 @@ elif [ $deploymentMode == "cloud-native" ]
 then
     #create service
     echo "Updating task definition"
-    createTaskDefResp=$(aws ecs register-task-definition --family demo-jenkins --cli-input-json file://build_scripts/taskdefinition.json --region $awsRegion | grep revision | tr -d revision | tr -d " | tr -d : )
+    createTaskDefResp=$(aws ecs register-task-definition --family demo-jenkins --cli-input-json file://build_scripts/taskdefinition.json --region $awsRegion | grep revision | tr -d revision | tr -d '"' | tr -d ':' )
     echo $createTaskDefResp
     #sleep 10
     #echo "Creating service"
