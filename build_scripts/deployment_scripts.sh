@@ -130,7 +130,7 @@ then
     createTaskDefResp=$(aws ecs register-task-definition --family demo-jenkins --cli-input-json file://build_scripts/taskdefinition.json --region $awsRegion | grep revision | tr -d revision | tr -d '"' | tr -d ':' )
     echo $createTaskDefResp  
     sleep 10
-    ssmPutPara=$(aws ssm put-parameter --name "task-def-version" --value "$createTaskDefResp" --type "String")
+    ssmPutPara=$(aws ssm put-parameter --name "task-def-version" --value "$createTaskDefResp" --type "String" --region $awsRegion)
     echo $ssmPutPara
     #echo "Creating service"
     #createServiceResp=$(aws ecs create-service --cluster $clusterName --service-name $serviceName --task-definition $taskDefinition --desired-count 1 --launch-type EC2 --region $awsRegion)
