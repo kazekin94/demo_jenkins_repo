@@ -11,5 +11,5 @@ containerName=helloworld
 awsRegion=ap-south-1
 amiId=ami-069d04dcb97601387
 clusterName=cloud-native-django
-serviceName=demo-jenkins-stale-service
+serviceName=test-test
 taskDefinition=demo-jenkins:1
