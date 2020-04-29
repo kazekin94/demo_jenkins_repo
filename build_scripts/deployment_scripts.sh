@@ -128,7 +128,7 @@ then
     #create service
     echo "Updating task definition"
     createTaskDefResp=$(aws ecs register-task-definition --family demo-jenkins --cli-input-json file://build_scripts/taskdefinition.json --region $awsRegion | grep revision | tr -d revision | tr -d '"' | tr -d ':' )
-    echo $createTaskDefResp  
+    echo "Task definition version: $createTaskDefResp"
     sleep 10
     ssmPutPara=$(aws ssm put-parameter --name "task-def-version" --value "$createTaskDefResp" --type "String" --region $awsRegion)
     echo $ssmPutPara
