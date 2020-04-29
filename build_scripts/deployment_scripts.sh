@@ -130,6 +130,7 @@ then
     aws ecs register-task-definition --family demo-jenkins --cli-input-json file://build_scripts/taskdefinition.json --region $awsRegion
     #echo "Creating service"
     createServiceResp=$(aws ecs create-service --cluster $clusterName --service-name $serviceName --task-definition $taskDefinition --desired-count 1 --launch-type EC2 --region $awsRegion)
+    echo $createServiceResp
 
 else
     echo "Wrong deployment mode selcted"
