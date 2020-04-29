@@ -1,11 +1,11 @@
 {
-    "family": "",
+    "family": "demo-jenkins",
     "taskRoleArn": "",
     "executionRoleArn": "",
     "networkMode": "host",
     "containerDefinitions": [
         {
-            "name": "",
+            "name": "helloworld",
             "image": "",
             "repositoryCredentials": {
                 "credentialsParameter": ""
@@ -18,31 +18,13 @@
             ],
             "portMappings": [
                 {
-                    "containerPort": 0,
-                    "hostPort": 0,
-                    "protocol": "udp"
+                    "containerPort": 8000,
+                    "hostPort": 8000,
+                    "protocol": "tcp"
                 }
             ],
             "essential": true,
-            "entryPoint": [
-                ""
-            ],
-            "command": [
-                ""
-            ],
-            "environment": [
-                {
-                    "name": "",
-                    "value": ""
-                }
-            ],
-            "mountPoints": [
-                {
-                    "sourceVolume": "",
-                    "containerPath": "",
-                    "readOnly": true
-                }
-            ],
+            
             "volumesFrom": [
                 {
                     "sourceContainer": "",
