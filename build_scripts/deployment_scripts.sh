@@ -133,7 +133,7 @@ then
     ssmPutPara=$(aws ssm put-parameter --name "task-def-version" --value "$createTaskDefResp" --type "String" --region $awsRegion)
     echo $ssmPutPara
     sleep 5
-    ssmGetPara=$(aws ssm get-parameter --name "task-def-version" --region $awsRegion | grep Value | tr -d Value   )
+    ssmGetPara=$(aws ssm get-parameter --name "task-def-version" --region $awsRegion | grep Value | tr -d Value | tr -d '"' | tr -d ',' | tr -d ':' | awk '{$1=$1};1'  )
     echo $ssmGetPara
     #echo "Creating service"
     #createServiceResp=$(aws ecs create-service --cluster $clusterName --service-name $serviceName --task-definition $taskDefinition --desired-count 1 --launch-type EC2 --region $awsRegion)
