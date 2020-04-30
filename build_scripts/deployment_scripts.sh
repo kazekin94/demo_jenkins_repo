@@ -140,8 +140,8 @@ then
     taskDef=$taskDefinition$ssmGetPara
     echo $taskDef
     #echo "Creating service"
-    #createServiceResp=$(aws ecs create-service --cluster $clusterName --service-name $serviceName --task-definition $taskDefinition --desired-count 1 --launch-type EC2 --region $awsRegion)
-    #echo $createServiceResp
+    createServiceResp=$(aws ecs create-service --cluster $clusterName --service-name $serviceName --task-definition $taskDef --desired-count 1 --launch-type EC2 --region $awsRegion)
+    echo $createServiceResp
 
 else
     echo "Wrong deployment mode selcted"
