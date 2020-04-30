@@ -1,7 +1,6 @@
 artifactBucketName=ankit-git-boto
 sesFromEmail="ankit.thakur@axcess.io"
 toEmails="ankit.thakur@juspay.in"
-
 imageName=kuzuri1194/ankit:django_helloworld
 deploymentGroupName=deployToProdJenkinsCiDg
 deploymentApplication=deployToProdJenkinsCi

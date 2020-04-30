@@ -1,0 +1,7 @@
+{
+    "ecr_repo_name": "django-helloworld",
+    "ecr_repo_uri": "614083026494.dkr.ecr.ap-south-1.amazonaws.com/django-helloworld",
+    "artifact_bucket_name": "ankit-git-boto",
+    "ses_from_email": "ankit.thakur@axcess.io",
+    "ses_to_email": "ankit.thakur@juspay.in"
+}
