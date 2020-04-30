@@ -1,12 +1,11 @@
 artifactBucketName=ankit-git-boto
 sesFromEmail="ankit.thakur@axcess.io"
 toEmails="ankit.thakur@juspay.in"
-dockerUser=kuzuri1194
-dockerUserPasswd=Kazekin94
+
 imageName=kuzuri1194/ankit:django_helloworld
 deploymentGroupName=deployToProdJenkinsCiDg
 deploymentApplication=deployToProdJenkinsCi
-deploymentMode=cloud-native
+deploymentMode=fresh
 containerName=helloworld
 awsRegion=ap-south-1
 amiId=ami-069d04dcb97601387
